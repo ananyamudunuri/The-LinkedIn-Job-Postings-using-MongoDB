@@ -136,6 +136,46 @@ We have created Clusters and Database in MongoDB. And uploaded JSON data into tw
 #-------------------------------------------------------------------------------------------------------------------------#
 
 - Analysis_1:
-  Linkedin Job Posting shows multiple job post from various companies across United States. So Linked Job Seeker wants to check which US State has highest job opportunities.
+  Linkedin Job Posting shows multiple job post from various companies across United States. So a Job Seeker on Linkedin platform wants to check which US State has highest job opportunities.
 
+<img width="545" alt="Screenshot 2023-11-17 at 12 18 35 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/0d05c4c1-2501-4059-b430-3e694c52fa1c">
 
+Query results :
+
+<img width="915" alt="Screenshot 2023-11-17 at 12 19 40 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/f68c206e-4c4c-4226-acf8-13f8596facd8">
+
+Linkedin Data set is showing California state alone has highest job requirement in USA, and this requirement is greater than the combined requirement from Texas and New York, which are from East coast.
+
+- Analysis_2:
+  Since California has highest job requirement across US, Job Seeker on Linkedin platform wants to check which Job title has highest job requirement in California.
+
+  <img width="753" alt="Screenshot 2023-11-17 at 12 20 38 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/22f09f5a-d02b-47eb-a429-310ad55b18c6">
+
+Query results:
+
+<img width="976" alt="Screenshot 2023-11-17 at 12 21 00 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/8f301f11-737a-4515-8d31-66d75ad45d04">
+
+Query result shows Sales Director(owner/operator) title has highest job requirement in California state followed by Executive Assistant title.
+
+- Analysis_3:
+ Linked user wants to check number of job posted from companies having highest followers. AlsoA are the companies having high volume of followers generating enough jobs?
+
+<img width="692" alt="Screenshot 2023-11-17 at 12 24 09 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/a5b4555f-d77a-4bd1-af8b-18e456ce3f96">
+
+Query results:
+
+<img width="973" alt="Screenshot 2023-11-17 at 12 24 44 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/b6e799a5-5a42-4223-90c9-81c7c6fa4b5b">
+
+Amazon has highest number of followers followed by Google and Unilever. We will explore now how many jobs were created by these top following companies.
+
+<img width="664" alt="Screenshot 2023-11-17 at 12 25 59 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/f0c561a8-de6d-4767-a0cd-7835f17b1053">
+
+Query results:
+
+<img width="982" alt="Screenshot 2023-11-17 at 12 26 41 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/cd6d51c9-8c38-4a82-91d6-c60ec9b082ed">
+
+So, Amazon and Google has created 93 jobs whereas Apple has created 15 and Unilever created just 2 jobs. 
+
+#-------------------------------------------------------------------------------------------------------------------------#
+### END of Analysis
+#-------------------------------------------------------------------------------------------------------------------------#
