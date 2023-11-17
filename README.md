@@ -36,7 +36,7 @@ To build the entire application, following steps were performed for this project
       job_postings.csv
 
 #-------------------------------------------------------------------------------------------------------------------------#
-## Application building steps
+##  Application Building Steps
 #-------------------------------------------------------------------------------------------------------------------------#
 ### Data Collection and clean up
 #-------------------------------------------------------------------------------------------------------------------------#
@@ -79,8 +79,8 @@ While designing conceptual schema we took reference from Lab1 database creation.
 ![EER Diagram_v0 1](https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/03b2696c-5edc-4152-8f49-a0745faf15dc)
 
 In Lab1 we designed 8 normalised tables and defined their cardinalities. However, for NoSQL database we will be designing denormalised tables/Collections.
-Primarily, we have deisgned two Collections: 
-  -
+Primarily, we have deisgned two Collections for Lab2 analysis: 
+  
 ####   CompanyJobDetail : This collection is for all the job requirements from different companies. 
       
        -  Document Structure of this collection is designed from JOB table schema created in Lab1 along with Company table schema. 
@@ -111,3 +111,27 @@ Here is a snippet of CompanyJobDetails JSON Schema structure for one document.
        -  Entire collection is limited to these tables to optimize query performance and data load.
 
  Here is a snippet of CompanyJobDetails JSON Schema structure for one document.    
+
+<img width="786" alt="JobPostFromCompany_Schema" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/902ae47c-d954-4e0e-9f54-c1cde78b0a01">
+
+
+#-------------------------------------------------------------------------------------------------------------------------#
+### Conversion of the data into JSON and schema building for NoSQL database
+#-------------------------------------------------------------------------------------------------------------------------#
+
+To create Collections in MongoDB database, we converted our csv data into JSON format through pandas Dataframe and developed the schema structure using Jupyter notebook.
+'SchemaDesign_And_JSON_Conversion.ipynb' showcases all the conversion steps in detail.
+
+
+#-------------------------------------------------------------------------------------------------------------------------#
+### Data Upload in to MongoDB Compass, Database and Collection creation
+#-------------------------------------------------------------------------------------------------------------------------#
+
+We have created Clusters and Database in MongoDB. And uploaded JSON data into two collections:
+- CompanyJobDetail : This collection has 15520 documents.
+- JobPostFromCompany : This collection has 15470 documents.
+
+#-------------------------------------------------------------------------------------------------------------------------#
+### Perform queries on MongoDB
+#-------------------------------------------------------------------------------------------------------------------------#
+
