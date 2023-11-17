@@ -135,3 +135,7 @@ We have created Clusters and Database in MongoDB. And uploaded JSON data into tw
 ### Perform queries on MongoDB
 #-------------------------------------------------------------------------------------------------------------------------#
 
+- Analysis_1:
+  Linkedin Job Posting shows multiple job post from various companies across United States. So Linked Job Seeker wants to check which US State has highest job opportunities.
+
+
