@@ -93,3 +93,21 @@ Primarily, we have deisgned two Collections:
        
        -  Entire collection is limited to these tables to optimize query performance and data load.
 
+Here is a snippet of CompanyJobDetails JSON Schema structure for one document.    
+
+<img width="779" alt="Company_Job_Detail_Schema" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/8fd2d702-7f49-449a-8626-45d13cefed50">
+
+
+####   JobPostFromCompany : This collection is for all the job post details posted on LinkedIn Website from different companies. 
+      
+       -  Document Structure of this collection is designed from JOBPOST table schema created in Lab1. 
+       
+       -  Company name and id from Company table schema is inserted as Embedded document under Company details. 
+          
+       -  This embedded document also has employee count and follower count from EMP_CNT table schema added from Lab1.
+       
+       -  Also, this document structure has Benefits added as a list element to reduce load of data redundancy.
+       
+       -  Entire collection is limited to these tables to optimize query performance and data load.
+
+ Here is a snippet of CompanyJobDetails JSON Schema structure for one document.    
