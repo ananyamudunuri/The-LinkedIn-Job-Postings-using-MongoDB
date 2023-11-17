@@ -76,4 +76,20 @@ An HR manager can have multiple requirements from the system.
 
 While designing conceptual schema we took reference from Lab1 database creation. 
 
+![EER Diagram_v0 1](https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/03b2696c-5edc-4152-8f49-a0745faf15dc)
+
+In Lab1 we designed 8 normalised tables and defined their cardinalities. However, for NoSQL database we will be designing denormalised tables/Collections.
+Primarily, we have deisgned two Collections: 
+  -
+####   CompanyJobDetail : This collection is for all the job requirements from different companies. 
+      
+       -  Document Structure of this collection is designed from JOB table schema created in Lab1 along with Company table schema. 
+       
+       -  Company table schema is inserted as Embedded document under Company details. 
+          
+       -  This embedded document also has company industry and speciality added as a list elements to reduce data redundancy.
+       
+       -  Also, this document structure has Jobskills added as a list element to reduce load of data redundancy.
+       
+       -  Entire collection is limited to these tables to optimize query performance and data load.
 
