@@ -17,6 +17,7 @@ db.LinkedinJobAnalysisData.aggregate([
     }
   }
 ]);
+
 Explanation:
 
 This query groups job postings by the combination of formatted_experience_level and work_type.
@@ -53,6 +54,7 @@ db.LinkedinJobAnalysisData.aggregate([
     }
   }
 ]);
+
 Explanation:
 
 This query identifies the most common specialty by unwinding the company.speciality array.
@@ -84,6 +86,7 @@ db.LinkedinJobAnalysisData.aggregate([
     }
   }
 ]);
+
 Explanation:
 
 This query groups job postings by company_details.company_name.
@@ -121,6 +124,7 @@ db.LinkedinJobAnalysisData.aggregate([
     $sort: { employee_to_application_ratio: -1 }
   }
 ]);
+
 Explanation:
 
 This query filters job postings where both company_details.employee_count and applies are not null.
@@ -148,6 +152,7 @@ db.LinkedinJobAnalysisData.aggregate([
     $sort: { application_to_view_ratio: -1 }
   }
 ]);
+
 Explanation:
 
 This query filters job postings where the number of views is greater than 0.
