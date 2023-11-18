@@ -24,6 +24,7 @@ Explanation:
 This query groups job postings by the combination of formatted_experience_level and work_type.
 It calculates the average salary (avg_salary) for each group by summing up max_salary and min_salary and then taking the average.
 
+This query can be used to find the average salary for each combination of experience level and work type. From this query we can say that experience level Director seems to be having the highest average salary with work type as other, followed by executive experience level.
 
 
 **2. Most Common Specialty and Associated Companies**
@@ -63,6 +64,8 @@ This query identifies the most common specialty by unwinding the company.special
 It counts the occurrences of each specialty and lists associated companies.
 Results are sorted by company count in descending order, and only the most common specialty is selected.
 
+The above query can be used to find which specialty is most in demand and what all companies have this speciality.From the output , community is the most common speciality with companies like Lyft ,The Moms project, etc. having this specialty
+
 
 **3. Top 10 Companies with the Most Job Listings**
 
@@ -95,6 +98,9 @@ Explanation:
 This query groups job postings by company_details.company_name.
 It calculates the total job count for each company and sorts the results in descending order.
 The top 10 companies with the most job listings are then selected.
+
+The company that has the greatest number of postings are from the company ‘null’. From this we can tell that there are lot of job postings where this company name is not mentioned. From the second company in the output is City Lifestyle which a total postings of 161 offers.
+
 
 
 **4. Ratio of Employee Count to Applications for Each Company**
@@ -135,6 +141,8 @@ This query filters job postings where both company_details.employee_count and ap
 It calculates the total employee count and total applications for each company.
 The ratio of employee count to applications is then computed, and results are sorted in descending order.
 
+Here the company PWC has the highest ration with 273293, followed by Ericsson, McDonald and Starbucks. However, it is important to keep in mind that if there are lot of job postings this subsequently leads to a lot of job applications. 
+
 
 **5. Job Postings with High Application-to-View Ratio**
 
@@ -142,13 +150,18 @@ The ratio of employee count to applications is then computed, and results are so
 db.LinkedinJobAnalysisData.aggregate([
   {
     $match: {
-      "views": { $gt: 0 } 
+      "views": { $gt: 0 },
+      "applies": { $gt: 0 },
+      $expr: { $gt: ["$views", "$applies"] }
     }
   },
   {
     $project: {
       _id: 0,
       job_posting_url: 1,
+      company_name: "$company_details.company_name",
+      views: 1,
+      applies: 1,
       application_to_view_ratio: { $divide: ["$applies", "$views"] }
     }
   },
@@ -161,8 +174,11 @@ db.LinkedinJobAnalysisData.aggregate([
 Explanation:
 
 This query filters job postings where the number of views is greater than 0.
-It projects a new document that includes the job_posting_url and calculates the application_to_view_ratio.
+It projects a new document that includes the job_posting_url , company name , views , applies and calculates the application_to_view_ratio.
 Results are sorted in descending order based on the application_to_view_ratio.
+
+Similarly, like the above query this find outs the ration of Application to view of the job postings. Here we can understand the relationship of the views and the applies for that particular job posting.
+
 
 
 **6. Lowest-Paying Job Posting for Each Company**
@@ -211,6 +227,7 @@ This query filters job postings where both max_salary and min_salary are not nul
 It groups job postings by company_details.company_name.
 For each company, it finds the lowest salary and creates an array of job postings with details.
 Results are then sorted in ascending order based on the lowest salary.
+
 
 
 
