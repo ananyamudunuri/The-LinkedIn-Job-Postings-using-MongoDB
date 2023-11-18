@@ -5,7 +5,7 @@ DATA-225 Sec 24 - Db Systems for Analytics Lab2 MongoDB Queries Explanation
 
 **1. Average Salary for Each Combination of Experience Level and Work Type**
 
-
+```
 db.LinkedinJobAnalysisData.aggregate([
   {
     $group: {
@@ -17,6 +17,7 @@ db.LinkedinJobAnalysisData.aggregate([
     }
   }
 ]);
+```
 
 Explanation:
 
