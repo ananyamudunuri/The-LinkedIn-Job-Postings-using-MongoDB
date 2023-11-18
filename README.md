@@ -1,7 +1,7 @@
 # DATA-225-Lab2-Group2
 DATA-225 Sec 24 - Db Systems for Analytics Lab2 
 DATA-225 Sec 24 - Db Systems for Analytics Lab2 MongoDB Queries Explanation
-
+`hsl(H,S,L)`
 
 **1. Average Salary for Each Combination of Experience Level and Work Type**
 
@@ -28,7 +28,7 @@ It calculates the average salary (avg_salary) for each group by summing up max_s
 
 **2. Most Common Specialty and Associated Companies**
 
-
+```
 db.LinkedinJobAnalysisData.aggregate([
   {
     $unwind: "$company.speciality"
@@ -55,6 +55,7 @@ db.LinkedinJobAnalysisData.aggregate([
     }
   }
 ]);
+```
 
 Explanation:
 
@@ -65,7 +66,7 @@ Results are sorted by company count in descending order, and only the most commo
 
 **3. Top 10 Companies with the Most Job Listings**
 
-
+```
 db.LinkedinJobAnalysisData.aggregate([
   {
     $group: {
@@ -87,6 +88,7 @@ db.LinkedinJobAnalysisData.aggregate([
     }
   }
 ]);
+```
 
 Explanation:
 
@@ -97,7 +99,7 @@ The top 10 companies with the most job listings are then selected.
 
 **4. Ratio of Employee Count to Applications for Each Company**
 
-
+```
 db.LinkedinJobAnalysisData.aggregate([
   {
     $match: {
@@ -125,6 +127,7 @@ db.LinkedinJobAnalysisData.aggregate([
     $sort: { employee_to_application_ratio: -1 }
   }
 ]);
+```
 
 Explanation:
 
@@ -133,9 +136,9 @@ It calculates the total employee count and total applications for each company.
 The ratio of employee count to applications is then computed, and results are sorted in descending order.
 
 
-**5. Job Postings with High Application-to-View Ratio
-**
+**5. Job Postings with High Application-to-View Ratio**
 
+```
 db.LinkedinJobAnalysisData.aggregate([
   {
     $match: {
@@ -153,6 +156,7 @@ db.LinkedinJobAnalysisData.aggregate([
     $sort: { application_to_view_ratio: -1 }
   }
 ]);
+```
 
 Explanation:
 
@@ -163,7 +167,7 @@ Results are sorted in descending order based on the application_to_view_ratio.
 
 **6. Lowest-Paying Job Posting for Each Company**
 
-
+```
 db.LinkedinJobAnalysisData.aggregate([
   {
     $match: {
@@ -199,6 +203,7 @@ db.LinkedinJobAnalysisData.aggregate([
     $sort: { lowest_salary: 1 }
   }
 ]);
+```
 
 Explanation:
 
