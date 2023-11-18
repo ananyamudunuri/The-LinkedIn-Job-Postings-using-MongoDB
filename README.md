@@ -1,7 +1,7 @@
 # DATA-225-Lab2-Group2
 DATA-225 Sec 24 - Db Systems for Analytics Lab2 
 DATA-225 Sec 24 - Db Systems for Analytics Lab2 MongoDB Queries Explanation
-`hsl(H,S,L)`
+
 
 **1. Average Salary for Each Combination of Experience Level and Work Type**
 
