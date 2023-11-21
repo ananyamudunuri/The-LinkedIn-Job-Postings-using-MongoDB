@@ -762,3 +762,21 @@ https://charts.mongodb.com/charts-project-0-hocab/public/dashboards/6ac354c5-8fb
 #### NoSQL performance Measurement and compare with MySQL
 
 #### Connection to Cloud 
+
+```
+from pymongo import MongoClient
+
+client = MongoClient(f" your connection string ")
+
+
+db = client["Lab_2"]
+
+collection = db['Company_T']
+
+results = collection.find().limit(10)
+
+print(results)
+
+```
+
+The code you provided is written in Python and uses the pymongo library to connect to a MongoDB database. It connects to a database named Lab_2 and retrieves the first 10 documents from the Company_T collection. The code snippet uses the find() method to retrieve the documents and the limit() method to limit the number of documents returned. Finally, the print() function is used to print the results.
