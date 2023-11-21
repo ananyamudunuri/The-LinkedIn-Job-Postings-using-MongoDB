@@ -818,5 +818,7 @@ results = collection.find().limit(10)
 print(results)
 
 ```
+![WhatsApp Image 2023-11-20 at 9 25 02 PM](https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/92011107/06a8b144-04d3-497e-b64f-e546d6e10d41)
+![WhatsApp Image 2023-11-20 at 9 25 02 PM (1)](https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/92011107/67c0b68b-d309-433d-8588-774a6d4a813a)
 
 The code is written in Python and uses the pymongo library to connect to a MongoDB database. It connects to a database named Lab_2 and retrieves the first 10 documents from the Company_T collection. The code snippet uses the find() method to retrieve the documents and the limit() method to limit the number of documents returned. Finally, the print() function is used to print the results.
