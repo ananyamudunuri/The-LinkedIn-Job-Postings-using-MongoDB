@@ -725,7 +725,7 @@ This concludes the analysis, the outputs of the codes are present in the individ
 
 ```
 
-## Visualization of MongoDB data
+### Visualization of MongoDB data
 
 Visualization was done in the `MongoDB Charts` in MongoDB Atlas
 
@@ -733,11 +733,11 @@ MongoDB Charts is a tool to create visual representations of your MongoDB data. 
 
 Our dashboard idea is : 
 
-## Project Manager Dashboard
+### Project Manager Dashboard
 
 This dashboard is a comprehensive tool designed for project managers to track and analyze their project's progress and performance. It provides a visual representation of various key metrics related to job applications, job vacancies, and salary ranges.
 
-## Features
+#### Features
 
 1. **Application Type based on Work Category**: This bar graph provides insights into the number of applications received for different work categories.
 
@@ -747,15 +747,15 @@ This dashboard is a comprehensive tool designed for project managers to track an
 
 4. **Project Manager Position based on Salary Range**: This bar graph presents the salary range for different positions within the project management domain.
 
-## Usage
+#### Usage
 
 To use this dashboard, simply navigate through the various charts and graphs. Hover over specific data points for more detailed information. This tool is designed to aid project managers in making informed decisions based on real-time data.
 
-##  Link to the Dashboard 
+###  Link to the Dashboard 
 
 https://charts.mongodb.com/charts-project-0-hocab/public/dashboards/6ac354c5-8fb2-4b65-afa3-78a64c99edad
 
-## Screenshort of the dashboard 
+### Screenshort of the dashboard 
 
 <img width="638" alt="Screenshot 2023-11-20 at 7 11 00 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/92011107/676e38c9-c651-4aa6-a241-d1878d92029b">
 
