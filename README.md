@@ -52,22 +52,20 @@ Reference:
 #-------------------------------------------------------------------------------------------------------------------------#
 
 #### Functional Analysis requires identification of functional elements. Here we assume the database system will be accessed by two type of users. 
-#### a. Job Seeker
 
-A job seeker can have multiple requirements from the system.
+A researcher analyst can have multiple requirements from the system.
+#### a. Researcher Analyst
                             
-####      1. a job seeker can search for:
-                          i. a job on the platform based on skills, experience level, job title, job location, salary etc.
-                          ii. a company on the platform based on company name, company size,benefits etc.
-####      2. a job seeker can view and apply for a job:
-                          i. if the job post has application link posted on the platform job seeker can apply
-                          ii. if not, job seeker can view the job post via platform
-####  b. HR Manager
+####       1. Researcher Analyst can analyse country/state wise amount job requirements using the platform
+####       2. Researcher Analyst can analyse industry wise job requirements using the platform and many more for analysis purpose.
+                        
+       
+####  b. admin user
 
-An HR manager can have multiple requirements from the system.
+An admin user can have multiple requirements from the system.
 
- ####       1. HR manager can add job post on the platform
- ####       2. HR manager can view performance of the job post, keep track of applications on the platform
+ ####       1. Admin user can update the records on the platform
+ ####       2. Admin user can retrieve or view analysis data on the platform
 
 
 #-------------------------------------------------------------------------------------------------------------------------#
@@ -80,6 +78,8 @@ While designing conceptual schema we took reference from Lab1 database creation.
 
 In Lab1 we designed 8 normalised tables and defined their cardinalities. However, for NoSQL database we will be designing denormalised tables/Collections.
 Primarily, we have deisgned two Collections for Lab2 analysis: 
+
+![NoSQL Schema _Conceptual Design](https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/9c2ca41c-20d2-4275-880a-5d76b44bb504)
   
 ####   CompanyJobDetail : This collection is for all the job requirements from different companies. 
       
@@ -137,8 +137,22 @@ We have created Clusters and Database in MongoDB. And uploaded JSON data into tw
 
 - Analysis_1:
   Linkedin Job Posting shows multiple job post from various companies across United States. So a Job Seeker on Linkedin platform wants to check which US State has highest job opportunities.
+  
+```bash
+db.CompanyJobDetail.aggregate([{
+  $unwind: "$company"
+}, {
+  $group: {
+    _id: "$company.state",
+    jobcount: {
+      $count: {}
+    }
+  }
+}]).sort({
+  jobcount: -1
+})
+```
 
-<img width="545" alt="Screenshot 2023-11-17 at 12 18 35 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/0d05c4c1-2501-4059-b430-3e694c52fa1c">
 
 Query results :
 
@@ -149,7 +163,29 @@ Linkedin Data set is showing California state alone has highest job requirement 
 - Analysis_2:
   Since California has highest job requirement across US, Job Seeker on Linkedin platform wants to check which Job title has highest job requirement in California.
 
-  <img width="753" alt="Screenshot 2023-11-17 at 12 20 38 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/22f09f5a-d02b-47eb-a429-310ad55b18c6">
+``` bash
+db.CompanyJobDetail.aggregate([{
+  $match: {
+    "job_location": {
+      $regex: 'CA'
+    }
+  }
+}, {
+  "$group": {
+    _id: "$job_title",
+    "jobcount": {
+      $count: {}
+    }
+  }
+}, {
+  "$project": {
+    "_id": 1,
+    "jobcount": 1
+  }
+}]).sort({
+  jobcount: -1
+})
+```
 
 Query results:
 
@@ -160,7 +196,26 @@ Query result shows Sales Director(owner/operator) title has highest job requirem
 - Analysis_3:
  Linked user wants to check number of job posted from companies having highest followers. AlsoA are the companies having high volume of followers generating enough jobs?
 
-<img width="692" alt="Screenshot 2023-11-17 at 12 24 09 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/a5b4555f-d77a-4bd1-af8b-18e456ce3f96">
+``` bash
+{
+  db.JobPostFromCompany.aggregate([{
+    $unwind: "$company_details"
+  }, {
+    "$group": {
+      _id: "$company_details.company_name",
+      maxfollower: {
+        $max: "$company_details.follower_count"
+      }
+    }
+  }, {
+    $sort: {
+      "maxfollower": -1
+    }
+  }, {
+    $limit: 5
+  }])
+}
+```
 
 Query results:
 
@@ -168,7 +223,24 @@ Query results:
 
 Amazon has highest number of followers followed by Google and Unilever. We will explore now how many jobs were created by these top following companies.
 
-<img width="664" alt="Screenshot 2023-11-17 at 12 25 59 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/f0c561a8-de6d-4767-a0cd-7835f17b1053">
+``` bash
+db.JobPostFromCompany.aggregate([{
+    $unwind: "$company_details"
+  }, {
+    $match: {
+      "company_details.company_name": {
+        $in: ["Amazon", "Google", "Unilever", "Apple"]
+      }
+    }
+  }, {
+    "$group": {
+      _id: "$company_details.company_name",
+      "jobcount": {
+        $count: {}
+      }
+    }
+  }])
+```
 
 Query results:
 
