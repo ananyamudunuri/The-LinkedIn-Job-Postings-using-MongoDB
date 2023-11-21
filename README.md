@@ -181,53 +181,6 @@ Similarly, like the above query this find outs the ration of Application to view
 
 
 
-**6. Lowest-Paying Job Posting for Each Company**
-
-```
-db.LinkedinJobAnalysisData.aggregate([
-  {
-    $match: {
-      $and: [
-        { "max_salary": { $ne: null } },
-        { "min_salary": { $ne: null } }
-      ]
-    }
-  },
-  {
-    $group: {
-      _id: "$company_details.company_name",
-      min_salary: { $min: { $min: ["$max_salary", "$min_salary"] } },
-      job_postings: {
-        $push: {
-          job_title: "$job_title",
-          max_salary: "$max_salary",
-          min_salary: "$min_salary",
-          job_posting_url: "$job_posting_url"
-        }
-      }
-    }
-  },
-  {
-    $project: {
-      _id: 0,
-      company_name: "$_id",
-      lowest_salary: "$min_salary",
-      job_postings: 1
-    }
-  },
-  {
-    $sort: { lowest_salary: 1 }
-  }
-]);
-```
-
-Explanation:
-
-This query filters job postings where both max_salary and min_salary are not null.
-It groups job postings by company_details.company_name.
-For each company, it finds the lowest salary and creates an array of job postings with details.
-Results are then sorted in ascending order based on the lowest salary.
-
 
 
 
