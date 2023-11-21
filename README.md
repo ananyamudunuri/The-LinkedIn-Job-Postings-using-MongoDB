@@ -1,5 +1,5 @@
 # DATA-225-Lab2-Group2
-# MongoDB Queries Explanation
+## MongoDB Queries Explanation
 
 ---
 
