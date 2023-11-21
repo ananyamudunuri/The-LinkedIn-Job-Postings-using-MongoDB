@@ -770,10 +770,11 @@ SQL : the performance is measured with the help of jmeter and on 3 queries
 
 3 : SELECT COMPANY.city, JOB.job_title, AVG(JOB.max_salary) as avg_max_salary FROM JOB JOIN COMPANY ON JOB.company_id = COMPANY.company_id GROUP BY COMPANY.city, JOB.job_title ORDER BY avg_max_salary DESC ;
 
-The total time taken to process these queries is : Q1(387) + Q2(250) + Q3(193) = 830 milliseconds.
+#### The total time taken to process these queries is : Q1(387) + Q2(250) + Q3(193) = 830 milliseconds.
 
 MQL : the performance is measured with the help of jmeter and on 3 queries 
 
+```
 1 : db.Jobs_T.aggregate([
     { $group: { _id: "$company.company_name", job_count: { $sum: 1 } } },
     { $sort: { job_count: -1 } },
@@ -789,8 +790,9 @@ MQL : the performance is measured with the help of jmeter and on 3 queries
     { $group: { _id: { city: "$company.city", job_title: "$job_title" }, avg_max_salary: { $avg: "$max_salary" } } },
     { $sort: { avg_max_salary: -1 } }
 ])
+```
 
-The total time taken to process these queries is : Q1(37) + Q2(38) + Q3(75) = 150 milliseconds.
+#### The total time taken to process these queries is : Q1(37) + Q2(38) + Q3(75) = 150 milliseconds.
 
 ### Connection to Cloud 
 
