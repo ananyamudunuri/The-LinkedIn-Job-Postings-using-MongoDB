@@ -7,9 +7,13 @@ This project focuses on utilizing JMeter for measuring the performance of SQL qu
 Features:
 
 Load testing SQL queries under diverse workloads
+
 Assessing database performance under stress conditions
+
 Identifying and resolving SQL query performance bottlenecks
+
 Enhancing SQL query execution efficiency through optimization techniques
+
 Please refer to the respective SQL and ipynb files for detailed information
 
 ![WhatsApp Image 2023-11-20 at 6 21 19 PM](https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/144860707/8b305d19-059f-4839-bdde-da62dad293df)
