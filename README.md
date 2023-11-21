@@ -759,9 +759,9 @@ https://charts.mongodb.com/charts-project-0-hocab/public/dashboards/6ac354c5-8fb
 
 <img width="638" alt="Screenshot 2023-11-20 at 7 11 00 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/92011107/676e38c9-c651-4aa6-a241-d1878d92029b">
 
-#### NoSQL performance Measurement and compare with MySQL
+### NoSQL performance Measurement and compare with MySQL
 
-#### Connection to Cloud 
+### Connection to Cloud 
 
 ```
 from pymongo import MongoClient
