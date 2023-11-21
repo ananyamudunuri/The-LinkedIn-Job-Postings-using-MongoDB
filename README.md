@@ -80,6 +80,8 @@ While designing conceptual schema we took reference from Lab1 database creation.
 
 In Lab1 we designed 8 normalised tables and defined their cardinalities. However, for NoSQL database we will be designing denormalised tables/Collections.
 Primarily, we have deisgned two Collections for Lab2 analysis: 
+
+![NoSQL Schema _Conceptual Design](https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/9c2ca41c-20d2-4275-880a-5d76b44bb504)
   
 ####   CompanyJobDetail : This collection is for all the job requirements from different companies. 
       
@@ -609,8 +611,116 @@ Explanation:
 
 This query finds job titles with the greatest difference between their maximum and minimum salary offerings. This can highlight roles with highly variable pay scales.
 
-
 #### Aryama Queries 
+#### 17. Linkedin Job Posting shows multiple job post from various companies across United States. So a Job Seeker on Linkedin platform wants to check which US State has highest job opportunities.
+  
+```bash
+db.CompanyJobDetail.aggregate([{
+  $unwind: "$company"
+}, {
+  $group: {
+    _id: "$company.state",
+    jobcount: {
+      $count: {}
+    }
+  }
+}]).sort({
+  jobcount: -1
+})
+```
+
+Query results :
+
+<img width="915" alt="Screenshot 2023-11-17 at 12 19 40 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/f68c206e-4c4c-4226-acf8-13f8596facd8">
+
+Linkedin Data set is showing California state alone has highest job requirement in USA, and this requirement is greater than the combined requirement from Texas and New York, which are from East coast.
+
+#### 18. Since California has highest job requirement across US, Job Seeker on Linkedin platform wants to check which Job title has highest job requirement in California.
+
+``` bash
+db.CompanyJobDetail.aggregate([{
+  $match: {
+    "job_location": {
+      $regex: 'CA'
+    }
+  }
+}, {
+  "$group": {
+    _id: "$job_title",
+    "jobcount": {
+      $count: {}
+    }
+  }
+}, {
+  "$project": {
+    "_id": 1,
+    "jobcount": 1
+  }
+}]).sort({
+  jobcount: -1
+})
+```
+
+Query results:
+
+<img width="976" alt="Screenshot 2023-11-17 at 12 21 00 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/8f301f11-737a-4515-8d31-66d75ad45d04">
+
+Query result shows Sales Director(owner/operator) title has highest job requirement in California state followed by Executive Assistant title.
+
+#### 19. Linked user wants to check number of job posted from companies having highest followers. AlsoA are the companies having high volume of followers generating enough jobs?
+
+``` bash
+{
+  db.JobPostFromCompany.aggregate([{
+    $unwind: "$company_details"
+  }, {
+    "$group": {
+      _id: "$company_details.company_name",
+      maxfollower: {
+        $max: "$company_details.follower_count"
+      }
+    }
+  }, {
+    $sort: {
+      "maxfollower": -1
+    }
+  }, {
+    $limit: 5
+  }])
+}
+```
+
+Query results:
+
+<img width="973" alt="Screenshot 2023-11-17 at 12 24 44 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/b6e799a5-5a42-4223-90c9-81c7c6fa4b5b">
+
+#### 20. Amazon has highest number of followers followed by Google and Unilever. We will explore now how many jobs were created by these top following companies.
+
+``` bash
+db.JobPostFromCompany.aggregate([{
+    $unwind: "$company_details"
+  }, {
+    $match: {
+      "company_details.company_name": {
+        $in: ["Amazon", "Google", "Unilever", "Apple"]
+      }
+    }
+  }, {
+    "$group": {
+      _id: "$company_details.company_name",
+      "jobcount": {
+        $count: {}
+      }
+    }
+  }])
+```
+
+Query results:
+
+<img width="982" alt="Screenshot 2023-11-17 at 12 26 41 PM" src="https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/42118282/cd6d51c9-8c38-4a82-91d6-c60ec9b082ed">
+
+So, Amazon and Google has created 93 jobs whereas Apple has created 15 and Unilever created just 2 jobs. 
+
 
 #### Connecting to cloud 
 
