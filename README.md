@@ -104,9 +104,8 @@ This query assists in pinpointing job titles with the widest salary ranges avail
 
 ---
 
-Feel free to use these README sections to accompany your queries or share them for documentation purposes!
 
-JMeter SQL Performance Measurement
+### JMeter SQL Performance Measurement
 This project focuses on utilizing JMeter for measuring the performance of SQL queries. It aims to evaluate the efficiency and scalability of SQL databases under various workloads and stress conditions. The study provides insights into query execution and database responsiveness, enabling optimization and performance enhancements.
 
 Features:
