@@ -1,7 +1,5 @@
-# DATA-225-Lab2-Group2
-DATA-225 Sec 24 - Db Systems for Analytics Lab2 
-
-Certainly! Here are the README files for the queries you've provided:
+# Data-225-lab2-group-project
+# LinkedIn Job Analysis Queries README
 
 ---
 
