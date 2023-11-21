@@ -154,7 +154,9 @@ This dashboard is a comprehensive tool designed for project managers to track an
 
 To use this dashboard, simply navigate through the various charts and graphs. Hover over specific data points for more detailed information. This tool is designed to aid project managers in making informed decisions based on real-time data.
 
+##  Link to the Dashboard 
 
+https://charts.mongodb.com/charts-project-0-hocab/public/dashboards/6ac354c5-8fb2-4b65-afa3-78a64c99edad
 
 
 ## Conclusion
