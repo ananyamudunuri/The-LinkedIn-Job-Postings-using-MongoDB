@@ -724,6 +724,9 @@ So, Amazon and Google has created 93 jobs whereas Apple has created 15 and Unile
 This concludes the analysis, the outputs of the codes are present in the individual branches or to access all the codes at one place, please refer to the project report in the main branch.
 
 ```
+### User Creation 
+
+![WhatsApp Image 2023-11-20 at 9 03 48 PM](https://github.com/ananyamudunuri/DATA-225-Lab2-Group2/assets/92011107/171cfd23-025c-4b57-8268-baf4cd3f4be4)
 
 ### Visualization of MongoDB data
 
