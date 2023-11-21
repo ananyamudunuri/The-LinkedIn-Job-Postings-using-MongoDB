@@ -799,7 +799,7 @@ MQL : the performance is measured with the help of jmeter and on 3 queries
 
 #### The total time taken to process these queries is : Q1(37) + Q2(38) + Q3(75) = 150 milliseconds.
 
-### Now, we can conclude that MongoDB is much faster than MySQL. And this report is formed with the help of JMeter to perform the performance measurement of MySQL and used explain () method to measure performance in MongoDB.
+#### Now, we can conclude that MongoDB is much faster than MySQL. And this report is formed with the help of JMeter to perform the performance measurement of MySQL and used explain () method to measure performance in MongoDB.
 
 ### Connection to Cloud 
 
