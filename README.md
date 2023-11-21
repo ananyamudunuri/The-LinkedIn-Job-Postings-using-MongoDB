@@ -611,7 +611,6 @@ Explanation:
 
 This query finds job titles with the greatest difference between their maximum and minimum salary offerings. This can highlight roles with highly variable pay scales.
 
-#### Aryama Queries 
 #### 17. Linkedin Job Posting shows multiple job post from various companies across United States. So a Job Seeker on Linkedin platform wants to check which US State has highest job opportunities.
   
 ```bash
@@ -721,10 +720,40 @@ Query results:
 
 So, Amazon and Google has created 93 jobs whereas Apple has created 15 and Unilever created just 2 jobs. 
 
-
-#### Connecting to cloud 
+## This concludes the analysis, the outputs of the codes are present in the individual branches or to access all the codes at one place, please refer to the project report in the main branch. 
 
 ##### Visualization of MongoDB data
+
+Visualization was done in the `MongoDB Charts` in MongoDB Atlas
+
+MongoDB Charts is a tool to create visual representations of your MongoDB data. Data visualization is a key component to providing a clear understanding of your data, highlighting correlations between variables and making it easy to discern patterns and trends within your dataset. MongoDB Charts makes communicating your data a straightforward process by providing built-in tools to easily share and collaborate on visualizations.
+
+Our dashboard idea is : 
+
+## Project Manager Dashboard
+
+This dashboard is a comprehensive tool designed for project managers to track and analyze their project's progress and performance. It provides a visual representation of various key metrics related to job applications, job vacancies, and salary ranges.
+
+## Features
+
+1. **Application Type based on Work Category**: This bar graph provides insights into the number of applications received for different work categories.
+
+2. **Map view of countries with max vacancies**: This map gives a geographical representation of job vacancies, highlighting the countries with the most job openings.
+
+3. **Salary Range based on Experience Level**: This line graph shows the salary range for different positions, providing a clear view of compensation based on experience levels.
+
+4. **Project Manager Position based on Salary Range**: This bar graph presents the salary range for different positions within the project management domain.
+
+## Usage
+
+To use this dashboard, simply navigate through the various charts and graphs. Hover over specific data points for more detailed information. This tool is designed to aid project managers in making informed decisions based on real-time data.
+
+##  Link to the Dashboard 
+
+https://charts.mongodb.com/charts-project-0-hocab/public/dashboards/6ac354c5-8fb2-4b65-afa3-78a64c99edad
+
+## Screenshort of the dashboard 
+
 
 #### NoSQL performance Measurement and compare with MySQL
 
